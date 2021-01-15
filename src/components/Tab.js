@@ -2,7 +2,8 @@ import './_tab.css'
 import React, { useReducer, useEffect } from 'react'
 
 const applyBoxShadow = {
-    boxShadow: "1px 2px"
+    boxShadow: "1px 1px 0px 0px lightgrey",
+    backgroundColor: "grey"
 }
 
 const ACTION = {
