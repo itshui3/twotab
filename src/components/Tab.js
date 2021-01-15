@@ -1,20 +1,46 @@
 import './_tab.css'
-import React from 'react'
+import React, { useReducer, useEffect } from 'react'
+
+const applyBoxShadow = {
+    boxShadow: "1px 2px"
+}
+
+const ACTION = {
+    SWAPCSS: 'swapcss'
+}
+
+const circleCssReducer = (state, { type, payload }) => {
+
+    switch(type) {
+        case ACTION.SWAPCSS:
+
+            if (payload) {
+                return { ...applyBoxShadow }
+            } else {
+                return {}
+            }
+
+        default:
+            return state
+    }
+
+}
 
 function Tab({ pressed, clickHelper }) {
+
+    const [pressedCSS, dispatch] = useReducer(circleCssReducer, applyBoxShadow)
+
+    useEffect(() => {
+        dispatch({ type: ACTION.SWAPCSS, payload: pressed })
+    }, [pressed])
 
 return (
 <>
     <div className='tab_cont'>
-        <svg height="20" width="20"
-        onClick={clickHelper}
-        className='tab_svg'>
-            <circle 
-            cx="10" cy="10" r="10"
-            stroke="black"
-            
-            fill={`${pressed?"black":"none"}`}></circle>
-        </svg>
+        <div className='tab_circle'  
+        style={pressedCSS}
+        onClick={() => !pressed ? clickHelper() : null}
+        ></div>
     </div>
 </>
 )
