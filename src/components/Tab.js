@@ -1,20 +1,21 @@
+import './_tab.css'
 import React from 'react'
 
 function Tab({ pressed, clickHelper }) {
 
-    const fillIn = pressed ? "black" : "white"
-
 return (
 <>
-
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-    onClick={clickHelper}>
-        <circle 
-        cx="50" cy="50" r="50"
-        stroke="black"
-        fill={fillIn}></circle>
-    </svg>
-
+    <div className='tab_cont'>
+        <svg height="20" width="20"
+        onClick={clickHelper}
+        className='tab_svg'>
+            <circle 
+            cx="10" cy="10" r="10"
+            stroke="black"
+            
+            fill={`${pressed?"black":"none"}`}></circle>
+        </svg>
+    </div>
 </>
 )
 }

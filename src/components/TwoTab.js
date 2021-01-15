@@ -1,4 +1,5 @@
 import './_center.css'
+import './_twoTab.css'
 import React, { useReducer } from 'react'
 
 import Tab from './Tab'
