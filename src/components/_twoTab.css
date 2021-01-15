@@ -1,5 +1,5 @@
 .twoTab_cont {
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0, .5);
 
     display: flex;
     flex-direction: row;
